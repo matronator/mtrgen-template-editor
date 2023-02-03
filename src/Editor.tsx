@@ -13,7 +13,7 @@ import { InterfaceNode } from "./Nodes/Template/InterfaceNode";
 import { TraitNode } from "./Nodes/Template/TraitNode";
 
 interface EditorProps {
-    onTemplateChange: (template: Template) => void;
+    onTemplateChange?: (template: Template) => void;
 }
 
 export function Editor(props: EditorProps) {
@@ -26,9 +26,11 @@ export function Editor(props: EditorProps) {
         }
     });
 
-    useEffect(() => {
-        props.onTemplateChange(template);
-    }, [template]);
+    if (props.onTemplateChange !== undefined) {
+        useEffect(() => {
+            props.onTemplateChange!(template);
+        }, [template]);
+    }
 
     function fileIsEmpty() {
         return !template.file.class && !template.file.interface && !template.file.namespace && !template.file.trait;
