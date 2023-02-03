@@ -100,7 +100,8 @@ export function ClassNode(props: ClassNodeProps) {
             <>
                 {item?.modifier ? `${item?.modifier} ` : ''}class <span className="syntax-operator">{item?.name ?? 'Class'}</span>
                 {item?.extends && <> extends <span className="syntax-extends">{item.extends}</span></>}
-                {item?.implements && <> implements <span className="syntax-class">{item.implements.map(({ value }) => <>{value}</>).reduce((p, c, i) => <>[p, <span key={i} className="syntax-operator">, </span>, c]</>)}</span></>}
+                {/* @ts-ignore */}
+                {item?.implements && <> implements <span className="syntax-class">{item.implements.map(({ value }) => <>{value}</>).reduce((p, c, i) => [p, <span key={i} className="syntax-operator">, </span>, c])}</span></>}
             </>
         );
     }
