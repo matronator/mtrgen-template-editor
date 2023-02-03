@@ -46,4 +46,4 @@ function App() {
 onTemplateChange?: (template: Template) => void;
 ```
 
-`template` - the template object to edit or a new empty one
+`template` - the changed template object

@@ -4,26 +4,32 @@ import "./styles/grid.css";
 import "./styles/utils.css";
 import { useState, useEffect, ChangeEvent } from "react";
 import { Accordion, InputGroup, Form, Button, DropdownButton, Dropdown } from "react-bootstrap";
-import { generateUUID, setNodeHeader } from "./utils/utils";
+import { generateUUID, injectStyles, setNodeHeader } from "./utils/utils";
 import { Template, Trait, Interface } from "./Schema";
 import { CollapsedNode } from "./Nodes/CollapsedNode";
 import { Node } from "./Nodes/Node";
 import { ClassNode } from "./Nodes/Template/ClassNode";
 import { InterfaceNode } from "./Nodes/Template/InterfaceNode";
 import { TraitNode } from "./Nodes/Template/TraitNode";
+import { useEffectOnce } from "usehooks-ts";
 
 interface EditorProps {
+    template?: Template;
     onTemplateChange?: (template: Template) => void;
 }
 
 export function Editor(props: EditorProps) {
-    const [template, setTemplate] = useState<Template>({
+    const [template, setTemplate] = useState<Template>(props.template ?? {
         name: 'Template',
         filename: '<%name%>Template',
         path: '<%path%>',
         file: {
 
         }
+    });
+
+    useEffectOnce(() => {
+        injectStyles();
     });
 
     if (props.onTemplateChange !== undefined) {
@@ -273,7 +279,7 @@ export function Editor(props: EditorProps) {
                 <Accordion.Header>Template</Accordion.Header>
                 <Accordion.Body>
                     <>
-                        {Object.keys(template).map((key: string) => key !== 'file' && <Node key={key} title={key} />)}
+                    {Object.keys(template).map((key: string) => key !== 'file' && <Node key={key} title={key} value={template[key as 'name'|'filename'|'path']} onChange={(e) => setTemplate(prevVal => ({ ...prevVal, [key]: e.target.value }))} />)}
                         <CollapsedNode eventKey="file" header="File">
                             <Node title="strict" type="checkbox" />
                             <Node.Array title="use" onAdd={handleAddFileUse} addButtonTitle="Add use statement">

@@ -70,7 +70,7 @@ export function ClassNode(props: ClassNodeProps) {
     }
 
     return (
-        <CollapsedNode eventKey="class" header="Class" onCloseClick={props.onClose} closeButton>
+        <CollapsedNode eventKey="class" header="Class" name={getClassHeader(cls)} onCloseClick={props.onClose} closeButton>
             <Node title="name" value={cls?.name ?? 'Class'} onChange={(e) => setCls(prevVal => ({ ...prevVal, name: e.target.value }))} />
             <Node.Enum name="modifier" title="modifier" options={['', 'final', 'abstract']} onChange={(e) => setCls(prevValue => ({ ...prevValue, modifier: e.target.value as Modifier }))} />
             <Node title="extends" onChange={(e) => setCls(prevVal => ({ ...prevVal, extends: e.target.value }))} />
@@ -94,4 +94,14 @@ export function ClassNode(props: ClassNodeProps) {
             </Node.Array>
         </CollapsedNode>
     );
+
+    function getClassHeader(item: Class|undefined) {
+        return (
+            <>
+                {item?.modifier ? `${item?.modifier} ` : ''}class <span className="syntax-operator">{item?.name ?? 'Class'}</span>
+                {item?.extends && <> extends <span className="syntax-extends">{item.extends}</span></>}
+                {item?.implements && <> implements <span className="syntax-class">{item.implements.map(({ value }) => <>{value}</>).reduce((p, c, i) => <>[p, <span key={i} className="syntax-operator">, </span>, c]</>)}</span></>}
+            </>
+        );
+    }
 }
