@@ -4,6 +4,14 @@
   "description": "Editor for MTRGen templates",
   "license": "MIT",
   "version": "1.0.0",
+  "homepage": "https://github.com/matronator/mtrgen-template-editor",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matronator/mtrgen-template-editor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/matronator/mtrgen-template-editor/issues"
+  },
   "main": "./dist/mtrgen-template-editor.umd.cjs",
   "module": "./dist/mtrgen-template-editor.js",
   "type": "module",
