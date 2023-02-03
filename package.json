@@ -1,0 +1,53 @@
+{
+  "name": "mtrgen-template-editor",
+  "author": "Matronator",
+  "description": "Editor for MTRGen templates",
+  "license": "MIT",
+  "version": "1.0.0",
+  "main": "./dist/mtrgen-template-editor.umd.cjs",
+  "module": "./dist/mtrgen-template-editor.js",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.6.0",
+    "react-dom": "^18.2.0",
+    "react-syntax-highlighter": "^15.5.0",
+    "usehooks-ts": "^2.9.1",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@types/react-syntax-highlighter": "^15.5.6",
+    "@types/uuid": "^9.0.0",
+    "@vitejs/plugin-react": "^2.2.0",
+    "autoprefixer": "^10.4.13",
+    "typescript": "^4.6.4",
+    "vite": "^3.2.3",
+    "vite-plugin-dts": "^1.7.2"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/mtrgen-template-editor.js",
+      "require": "./dist/mtrgen-template-editor.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "mtrgen",
+    "template",
+    "editor",
+    "react",
+    "component"
+  ],
+  "scripts": {
+    "build": "tsc && vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  }
+}
