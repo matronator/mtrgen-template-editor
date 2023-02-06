@@ -3,7 +3,7 @@
   "author": "Matronator",
   "description": "Editor for MTRGen templates",
   "license": "MIT",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "homepage": "https://github.com/matronator/mtrgen-template-editor",
   "repository": {
     "type": "git",
