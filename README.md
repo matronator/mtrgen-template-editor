@@ -57,6 +57,8 @@ You need to have NodeJS installed and use React in your project.
 
 ```
 npm install mtrgen-template-editor
+```
+```
 pnpm install mtrgen-template-editor
 ```
 
