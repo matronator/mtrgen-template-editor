@@ -24,7 +24,7 @@ jobs:
           pnpm i --frozen-lockfile
       - run: npm pkg set 'publishConfig.registry'='https://npm.pkg.github.com'
       - run: npm pkg set name='@matronator/mtrgen-template-editor'
-      - run: npm build
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_PUBLISH}}
@@ -44,7 +44,7 @@ jobs:
       - run: npm pkg delete 'publishConfig.registry'
       - run: npm pkg set name='mtrgen-template-editor'
       - run: npm set registry http://registry.npmjs.org/
-      - run: npm build
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH}}
