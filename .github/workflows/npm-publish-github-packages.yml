@@ -19,7 +19,9 @@ jobs:
         with:
           node-version: 16
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
+      - run: |
+          npm i -g pnpm
+          pnpm i
       - run: npm pkg set 'publishConfig.registry':'https://npm.pkg.github.com'
       - run: npm pkg set 'name':'@matronator/mtrgen-template-editor'
       - run: npm publish
@@ -35,7 +37,9 @@ jobs:
         with:
           node-version: 16
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
+      - run: |
+          npm i -g pnpm
+          pnpm i
       - run: npm pkg delete 'publishConfig.registry'
       - run: npm pkg set 'name':'mtrgen-template-editor'
       - run: npm publish
