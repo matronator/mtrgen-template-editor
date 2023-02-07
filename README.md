@@ -1,10 +1,10 @@
 <p align="center">
   <a href="https://github.com/matronator/mtrgen-template-editor" rel="noopener">
-    <img width=200px height=200px src=".github/icon.png" alt="Project logo">
+    <img width=200px height=200px src="https://github.com/matronator/mtrgen-template-editor/blob/main/.github/icon.png?raw=true" alt="Project logo">
   </a>
 </p>
 
-<h3 align="center">MTRGen Template Editor</h3>
+<h1 align="center">MTRGen Template Editor</h1>
 
 <div align="center">
 
@@ -17,7 +17,9 @@
 
 ---
 
-<p align="center"> Template editor for MTRGen as a React component.
+<p align="center">
+
+  Template editor for [MTRGen](https://github.com/matronator/mtrgen) as a React component.
     <br> 
 </p>
 

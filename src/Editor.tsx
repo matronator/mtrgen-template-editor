@@ -2,7 +2,7 @@ import './styles/App.css';
 import './styles/Editor.css';
 import './styles/grid.css';
 import './styles/utils.css';
-import { ChangeEvent, Dispatch, SetStateAction, useEffect } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { Accordion, Button, Dropdown, DropdownButton, Form, InputGroup } from 'react-bootstrap';
 import { useEffectOnce } from 'usehooks-ts';
 import { CollapsedNode } from './Nodes/CollapsedNode';
@@ -20,8 +20,13 @@ interface EditorProps {
 }
 
 export function Editor(props: EditorProps) {
+    const [styles, setStyles] = useState<boolean>(false);
+
     useEffectOnce(() => {
-        injectStyles();
+        if (!styles) {
+            injectStyles();
+            setStyles(true);
+        }
     });
 
     useEffect(() => {
