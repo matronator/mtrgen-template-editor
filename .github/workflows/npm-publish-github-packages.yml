@@ -29,22 +29,19 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_PUBLISH}}
           
-  publish-npm:
-    needs: publish-gpr
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - run: |
-          npm i -g pnpm
-          pnpm i --frozen-lockfile
-      - run: npm pkg delete 'publishConfig.registry'
-      - run: npm pkg set name='mtrgen-template-editor'
-      - run: npm set registry http://registry.npmjs.org/
-      - run: npm run build
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH}}
+#  publish-npm:
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#      - uses: actions/setup-node@v3
+#        with:
+#          node-version: 16
+#      - run: |
+#          npm i -g pnpm
+#          pnpm i --frozen-lockfile
+#      - run: npm pkg delete publishConfig
+#      - run: npm pkg set name='mtrgen-template-editor'
+#      - run: npm run build
+#      - run: npm publish
+#        env:
+#          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH}}

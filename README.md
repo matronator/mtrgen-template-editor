@@ -56,19 +56,21 @@ You need to have NodeJS installed and use React in your project.
 #### With NPM or PNPM
 
 ```
-npm install @matronator/mtrgen-template-editor
-pnpm install @matronator/mtrgen-template-editor
+npm install mtrgen-template-editor
+```
+```
+pnpm install mtrgen-template-editor
 ```
 
 #### With Yarn
 
 ```
-yarn add @matronator/mtrgen-template-editor
+yarn add mtrgen-template-editor
 ```
 
 #### With Bun
 ```
-bun add @matronator/mtrgen-template-editor
+bun add mtrgen-template-editor
 ```
 
 ## 🎈 Usage <a name="usage"></a>
