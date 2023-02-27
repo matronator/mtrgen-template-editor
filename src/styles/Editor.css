@@ -28,6 +28,14 @@ ul.list {
     background-color: #fff6e7;
 }
 
+.dark-mode .node-item:nth-of-type(odd) {
+    background-color: #404040;
+}
+
+.dark-mode .node-item:hover {
+    background-color: #2c2d30;
+}
+
 .accordion-header pre.item-name {
     margin-top: 0;
     margin-bottom: 0;

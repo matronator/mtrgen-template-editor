@@ -1,7 +1,8 @@
 import { Editor } from './Editor';
-import { Template } from './Schema';
+import { Convert, Template } from './Schema';
 
 export {
     Editor as MTRGenTemplateEditor,
-    type Template
+    type Template,
+    Convert as ParseTemplate,
 };
