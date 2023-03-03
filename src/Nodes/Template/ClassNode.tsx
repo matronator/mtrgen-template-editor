@@ -1,12 +1,12 @@
-import { ReactNode, useEffect, useState } from "react";
-import { compareChanges, generateUUID } from "../../utils/utils";
-import { Class, Modifier, IndexedString, Method, Constant, Prop } from "../../Schema";
-import { CollapsedNode } from "../CollapsedNode";
-import { Node } from "../Node";
-import { ConstNode } from "./ConstNode";
-import { IndexedStringNode } from "./IndexedStringNode";
-import { MethodNode } from "./MethodNode";
-import { PropNode } from "./PropNode";
+import { useEffect, useState } from 'react';
+import { Class, Constant, IndexedString, Method, Modifier, Prop } from '../../Schema';
+import { compareChanges, generateUUID } from '../../utils/utils';
+import { CollapsedNode } from '../CollapsedNode';
+import { Node } from '../Node';
+import { ConstNode } from './ConstNode';
+import { IndexedStringNode } from './IndexedStringNode';
+import { MethodNode } from './MethodNode';
+import { PropNode } from './PropNode';
 
 interface ClassNodeProps {
     class?: Class;
@@ -71,7 +71,7 @@ export function ClassNode(props: ClassNodeProps) {
 
     return (
         <CollapsedNode eventKey="class" header="Class" name={getClassHeader(cls)} onCloseClick={props.onClose} closeButton>
-            <Node title="name" value={cls?.name ?? 'Class'} onChange={(e) => setCls(prevVal => ({ ...prevVal, name: e.target.value }))} />
+            <Node title="name" value={cls?.name ?? 'MyClass'} onChange={(e) => setCls(prevVal => ({ ...prevVal, name: e.target.value }))} />
             <Node.Enum name="modifier" title="modifier" options={['', 'final', 'abstract']} onChange={(e) => setCls(prevValue => ({ ...prevValue, modifier: e.target.value as Modifier }))} />
             <Node title="extends" onChange={(e) => setCls(prevVal => ({ ...prevVal, extends: e.target.value }))} />
             <IndexedStringNode title="implements" addButtonTitle="Add implement" strings={cls?.implements} onAdd={() => handleAddIndexedString('implements')} onChange={(id, newValue) => handleChangeIndexedString('implements', id, newValue)} onRemove={(id) => handleRemoveIndexedString('implements', id)} />
@@ -98,7 +98,7 @@ export function ClassNode(props: ClassNodeProps) {
     function getClassHeader(item: Class|undefined) {
         return (
             <>
-                {item?.modifier ? `${item?.modifier} ` : ''}class <span className="syntax-operator">{item?.name ?? 'Class'}</span>
+                {item?.modifier ? `${item?.modifier} ` : ''}class <span className="syntax-operator">{item?.name ?? 'MyClass'}</span>
                 {item?.extends && <> extends <span className="syntax-extends">{item.extends}</span></>}
                 {item?.implements && <> implements <span className="syntax-class">{item.implements.map(({ value }, index) => <>{item.implements!.length - 1 > index ? <>{value}<span key={index} className="syntax-operator">, </span></> : value}</>)}</span></>}
             </>

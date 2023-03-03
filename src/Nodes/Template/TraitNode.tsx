@@ -1,12 +1,11 @@
-import { MouseEvent, useEffect, useState } from "react";
-import { Button, Form, InputGroup } from "react-bootstrap";
-import { compareChanges, generateUUID } from "../../utils/utils";
-import { Trait, Method, Prop } from "../../Schema";
-import { CollapsedNode } from "../CollapsedNode";
-import { Node } from "../Node";
-import { IndexedStringNode } from "./IndexedStringNode";
-import { MethodNode } from "./MethodNode";
-import { PropNode } from "./PropNode";
+import { MouseEvent, useEffect, useState } from 'react';
+import { Method, Trait } from '../../Schema';
+import { compareChanges, generateUUID } from '../../utils/utils';
+import { CollapsedNode } from '../CollapsedNode';
+import { Node } from '../Node';
+import { IndexedStringNode } from './IndexedStringNode';
+import { MethodNode } from './MethodNode';
+import { PropNode } from './PropNode';
 
 interface TraitNodeProps {
     trait?: Trait;
@@ -95,7 +94,7 @@ export function TraitNode(props: TraitNodeProps) {
 
     return (
         <CollapsedNode eventKey="trait" header="Trait" name={trait?.name} onCloseClick={props.onClose} closeButton>
-            <Node title="name" value={trait?.name ?? 'Trait'} onChange={(e) => setTrait({...trait, name: e.target.value})} />
+            <Node title="name" value={trait?.name ?? 'MyTrait'} onChange={(e) => setTrait({...trait, name: e.target.value})} />
             <IndexedStringNode strings={trait?.comments} onAdd={handleAddComment} onChange={handleChangeComment} onRemove={handleRemoveComment} />
             <Node.Array title="methods" onAdd={handleAddMethod} titleSpan={2} valueSpan={10} addButtonTitle="Add method">
                 {trait?.methods?.map((item, key) =>

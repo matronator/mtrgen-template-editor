@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import { Button, Form, InputGroup } from "react-bootstrap";
-import { compareChanges, generateUUID } from "../../utils/utils";
-import { Constant, Interface, Method } from "../../Schema";
-import { CollapsedNode } from "../CollapsedNode";
-import { Node } from "../Node";
-import { IndexedStringNode } from "./IndexedStringNode";
-import { ConstNode } from "./ConstNode";
-import { MethodNode } from "./MethodNode";
+import { useEffect, useState } from 'react';
+import { Constant, Interface, Method } from '../../Schema';
+import { compareChanges, generateUUID } from '../../utils/utils';
+import { CollapsedNode } from '../CollapsedNode';
+import { Node } from '../Node';
+import { ConstNode } from './ConstNode';
+import { IndexedStringNode } from './IndexedStringNode';
+import { MethodNode } from './MethodNode';
 
 interface InterfaceNodeProps {
     interface?: Interface;
@@ -95,7 +94,7 @@ export function InterfaceNode(props: InterfaceNodeProps) {
 
     return (
         <CollapsedNode eventKey="interface" header="Interface" name={getInterfaceHeader(inter)} onCloseClick={props.onClose} closeButton>
-            <Node title="name" value={inter?.name ?? 'Interface'} onChange={(e) => setInter(prevVal => ({...prevVal, name: e.target.value}))} />
+            <Node title="name" value={inter?.name ?? 'MyInterface'} onChange={(e) => setInter(prevVal => ({...prevVal, name: e.target.value}))} />
             <Node title="extends" value={inter?.extends} onChange={(e) => setInter(prevVal => ({...prevVal, extends: e.target.value}))} />
             <IndexedStringNode strings={inter?.comments} onAdd={handleAddComment} onChange={handleChangeComment} onRemove={handleRemoveComment} />
             <Node.Array title="constants" onAdd={handleAddConst} titleSpan={2} valueSpan={10} addButtonTitle="Add constant">
@@ -114,7 +113,7 @@ export function InterfaceNode(props: InterfaceNodeProps) {
     function getInterfaceHeader(inter: Interface|undefined) {
         return (
             <>
-                interface <span className="syntax-operator">{inter?.name ?? 'Interface'}</span>
+                interface <span className="syntax-operator">{inter?.name ?? 'MyInterface'}</span>
                 {inter?.extends && <> extends <span className="syntax-extends">{inter.extends}</span></>}
             </>
         );
