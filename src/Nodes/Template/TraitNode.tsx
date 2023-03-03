@@ -94,7 +94,7 @@ export function TraitNode(props: TraitNodeProps) {
 
     return (
         <CollapsedNode eventKey="trait" header="Trait" name={trait?.name} onCloseClick={props.onClose} closeButton>
-            <Node title="name" value={trait?.name ?? 'MyTrait'} onChange={(e) => setTrait({...trait, name: e.target.value})} />
+            <Node title="name" value={trait?.name ?? '_trait'} onChange={(e) => setTrait({...trait, name: e.target.value})} />
             <IndexedStringNode strings={trait?.comments} onAdd={handleAddComment} onChange={handleChangeComment} onRemove={handleRemoveComment} />
             <Node.Array title="methods" onAdd={handleAddMethod} titleSpan={2} valueSpan={10} addButtonTitle="Add method">
                 {trait?.methods?.map((item, key) =>

@@ -94,7 +94,7 @@ export function InterfaceNode(props: InterfaceNodeProps) {
 
     return (
         <CollapsedNode eventKey="interface" header="Interface" name={getInterfaceHeader(inter)} onCloseClick={props.onClose} closeButton>
-            <Node title="name" value={inter?.name ?? 'MyInterface'} onChange={(e) => setInter(prevVal => ({...prevVal, name: e.target.value}))} />
+            <Node title="name" value={inter?.name ?? '_interface'} onChange={(e) => setInter(prevVal => ({...prevVal, name: e.target.value}))} />
             <Node title="extends" value={inter?.extends} onChange={(e) => setInter(prevVal => ({...prevVal, extends: e.target.value}))} />
             <IndexedStringNode strings={inter?.comments} onAdd={handleAddComment} onChange={handleChangeComment} onRemove={handleRemoveComment} />
             <Node.Array title="constants" onAdd={handleAddConst} titleSpan={2} valueSpan={10} addButtonTitle="Add constant">
@@ -113,7 +113,7 @@ export function InterfaceNode(props: InterfaceNodeProps) {
     function getInterfaceHeader(inter: Interface|undefined) {
         return (
             <>
-                interface <span className="syntax-operator">{inter?.name ?? 'MyInterface'}</span>
+                interface <span className="syntax-operator">{inter?.name ?? '_interface'}</span>
                 {inter?.extends && <> extends <span className="syntax-extends">{inter.extends}</span></>}
             </>
         );

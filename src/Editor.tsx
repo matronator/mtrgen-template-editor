@@ -49,7 +49,7 @@ export function Editor(props: EditorProps) {
                     ...prevTemplate.file,
                     namespace: {
                         ...prevTemplate.file.namespace,
-                        name: prevTemplate.file.namespace?.name ?? 'MyNamespace',
+                        name: prevTemplate.file.namespace?.name ?? '_namespace',
                         trait
                     }
                 }
@@ -73,7 +73,7 @@ export function Editor(props: EditorProps) {
                     ...prevTemplate.file,
                     namespace: {
                         ...prevTemplate.file.namespace,
-                        name: prevTemplate.file.namespace?.name ?? 'MyNamespace',
+                        name: prevTemplate.file.namespace?.name ?? '_namespace',
                         interface: inter,
                     }
                 }
@@ -97,7 +97,7 @@ export function Editor(props: EditorProps) {
                     ...prevTemplate.file,
                     namespace: {
                         ...prevTemplate.file.namespace,
-                        name: prevTemplate.file.namespace?.name ?? 'MyNamespace',
+                        name: prevTemplate.file.namespace?.name ?? '_namespace',
                         class: classNode,
                     }
                 }
@@ -159,7 +159,7 @@ export function Editor(props: EditorProps) {
                 ...props.template.file,
                 namespace: {
                     ...props.template.file.namespace,
-                    name: props.template.file.namespace?.name ?? 'MyNamespace',
+                    name: props.template.file.namespace?.name ?? '_namespace',
                     use: props.template.file.namespace?.use?.concat([{ id: generateUUID(), value: '' }]) ?? [{ id: generateUUID(), value: '' }]
                 }
             }
@@ -173,7 +173,7 @@ export function Editor(props: EditorProps) {
                 ...props.template.file,
                 namespace: {
                     ...props.template.file.namespace,
-                    name: props.template.file.namespace?.name ?? 'MyNamespace',
+                    name: props.template.file.namespace?.name ?? '_namespace',
                     use: props.template.file.namespace?.use?.map((value) => {
                         if (value.id === id) {
                             return {
@@ -196,7 +196,7 @@ export function Editor(props: EditorProps) {
                 ...props.template.file,
                 namespace: {
                     ...props.template.file.namespace,
-                    name: props.template.file.namespace?.name ?? 'MyNamespace',
+                    name: props.template.file.namespace?.name ?? '_namespace',
                     use: props.template.file.namespace?.use?.filter((value) => value.id !== id) ?? [],
                 }
             }
@@ -209,7 +209,7 @@ export function Editor(props: EditorProps) {
             file: {
                 ...props.template.file,
                 [itemType]: {
-                    name: `My${itemType}`
+                    name: `_${itemType}`
                 }
             }
         }));
@@ -232,9 +232,9 @@ export function Editor(props: EditorProps) {
                 ...props.template.file,
                 namespace: {
                     ...props.template.file.namespace,
-                    name: props.template.file.namespace?.name ?? 'MyNamespace',
+                    name: props.template.file.namespace?.name ?? '_namespace',
                     [itemType]: {
-                        name: `My${itemType}`
+                        name: `_${itemType}`
                     }
                 }
             }
@@ -248,7 +248,7 @@ export function Editor(props: EditorProps) {
                 ...props.template.file,
                 namespace: {
                     ...props.template.file.namespace,
-                    name: props.template.file.namespace?.name ?? 'MyNamespace',
+                    name: props.template.file.namespace?.name ?? '_namespace',
                     [itemType]: undefined
                 }
             }
