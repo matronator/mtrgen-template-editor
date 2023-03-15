@@ -9,6 +9,10 @@ ul.list {
 .editor input[type="text"] {
     font-family: 'Menlo', 'Courier New', Courier, monospace;
 }
+.dark-mode .editor input[type="text"] {
+    background-color: #212529;
+    color: #adb5bd;
+}
 
 .textarea-node textarea {
     font-family: 'Menlo', 'Courier New', Courier, monospace;

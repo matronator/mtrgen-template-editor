@@ -1,10 +1,11 @@
-import { ChangeEvent, Fragment, MouseEvent, ReactNode, useState } from "react";
-import { Button } from "react-bootstrap";
+import { ChangeEvent, Fragment, MouseEvent, ReactNode, useState } from 'react';
+import { Button } from 'react-bootstrap';
 
 interface NodeProps {
     title: string;
     type?: string;
     value?: string;
+    checked?: boolean;
     titleClass?: string;
     valueClass?: string;
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
@@ -12,9 +13,14 @@ interface NodeProps {
 
 function Node(props: NodeProps) {
     const [value, setValue] = useState(props.value ?? '');
+    const [checked, setChecked] = useState(props.checked ?? false);
 
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
-        setValue(e.target.value);
+        if (props.type === 'checkbox') {
+            setChecked(e.target.checked);
+        } else {
+            setValue(e.target.value);
+        }
         if (props.onChange instanceof Function) {
             props.onChange(e);
         }
@@ -26,7 +32,7 @@ function Node(props: NodeProps) {
                 {props.title}:
             </div>
             <div className={`${props.valueClass ?? ''} span-6`}>
-                <input type={props.type ?? 'text'} value={props.value ?? value} onChange={handleChange} />
+                <input type={props.type ?? 'text'} checked={props.checked ?? checked} value={props.value ?? value} onChange={handleChange} />
             </div>
         </div>
     );

@@ -22,6 +22,8 @@ interface EditorProps {
 export function Editor(props: EditorProps) {
     const [styles, setStyles] = useState<boolean>(false);
 
+    // #region
+
     useEffectOnce(() => {
         if (!styles) {
             injectStyles();
@@ -268,6 +270,8 @@ export function Editor(props: EditorProps) {
         }));
     }
 
+    // #endregion
+
     return (
         <Accordion defaultActiveKey="root" className="accordion-node editor">
             <Accordion.Item eventKey="root">
@@ -276,7 +280,7 @@ export function Editor(props: EditorProps) {
                     <>
                         {Object.keys(props.template).map((key: string) => key !== 'file' && <Node key={key} title={key} value={props.template[key as 'name'|'filename'|'path']} onChange={(e) => props.setTemplate(prevVal => ({ ...prevVal, [key]: e.target.value }))} />)}
                         <CollapsedNode eventKey="file" header="File">
-                            <Node title="strict" type="checkbox" />
+                        <Node title="strict" type="checkbox" checked={props.template.file.strict} onChange={(e) => props.setTemplate(prevVal => ({ ...prevVal, file: { ...prevVal.file, strict: e.target.checked } }))} />
                             <Node.Array title="use" onAdd={handleAddFileUse} addButtonTitle="Add use statement">
                                 {props.template.file.use?.map((item, key) => <InputGroup key={item.id}>
                                     <Form.Control type="text" value={item.value} onChange={e => handleChangeFileUse(item.id, e.target.value)} />
