@@ -136,7 +136,7 @@ function EnumNode(props: EnumNodeProps) {
                 <select name={props.name} id={props.name} onChange={handleChange}>
                     {props.options.map(option => 
                         <Fragment key={option}>
-                            {option.toString() === props.value ? <option selected={true}>{option}</option> : <option key={option}>{option}</option>}
+                            {option.toString() === props.value ? <option selected={true}>{option}</option> : <option>{option}</option>}
                         </Fragment>
                     )}
                 </select>

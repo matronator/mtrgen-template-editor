@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Class, Constant, IndexedString, Method, Modifier, Prop } from '../../Schema';
 import { compareChanges, generateUUID } from '../../utils/utils';
 import { CollapsedNode } from '../CollapsedNode';
@@ -100,7 +100,7 @@ export function ClassNode(props: ClassNodeProps) {
             <>
                 {item?.modifier ? `${item?.modifier} ` : ''}class <span className="syntax-operator">{item?.name ?? '_class'}</span>
                 {item?.extends && <> extends <span className="syntax-extends">{item.extends}</span></>}
-                {item?.implements && <> implements <span className="syntax-class">{item.implements.map(({ value }, index) => <>{item.implements!.length - 1 > index ? <>{value}<span key={index} className="syntax-operator">, </span></> : value}</>)}</span></>}
+                {item?.implements && <> implements <span className="syntax-class">{item.implements.map(({ value }, index) => <React.Fragment key={index}>{item.implements!.length - 1 > index ? <>{value}<span key={index} className="syntax-operator">, </span></> : value}</React.Fragment>)}</span></>}
             </>
         );
     }

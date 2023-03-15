@@ -17,6 +17,10 @@ ul.list {
 .textarea-node textarea {
     font-family: 'Menlo', 'Courier New', Courier, monospace;
 }
+.dark-mode .textarea-node textarea {
+    background-color: #212529;
+    color: #adb5bd;
+}
 
 .node-item {
     padding: .33rem 1rem;
@@ -33,11 +37,11 @@ ul.list {
 }
 
 .dark-mode .node-item:nth-of-type(odd) {
-    background-color: #404040;
+    background-color: #424344;
 }
 
 .dark-mode .node-item:hover {
-    background-color: #2c2d30;
+    background-color: #303133;
 }
 
 .accordion-header pre.item-name {
