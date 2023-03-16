@@ -229,10 +229,11 @@ interface IndexedString {
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-- [MongoDB](https://www.mongodb.com/) - TypeScript
-- [Express](https://expressjs.com/) - React
-- [VueJs](https://vuejs.org/) - Bootstrap
-- [NodeJs](https://nodejs.org/en/) - React Bootstrap
+- [pnpm](https://pnpm.io) - pnpm
+- [TypeScript](https://www.typescriptlang.org) - TypeScript
+- [React](https://reactjs.org) - React
+- [Bootstrap](https://getbootstrap.com) - Bootstrap
+- [React Bootstrap](https://react-bootstrap.github.io) - React Bootstrap
 
 ## ✍️ Authors <a name = "authors"></a>
 
